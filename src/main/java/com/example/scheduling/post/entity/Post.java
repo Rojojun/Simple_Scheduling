@@ -1,8 +1,18 @@
 package com.example.scheduling.post.entity;
 
+import com.example.scheduling.common.StatusType;
 import com.example.scheduling.user.entity.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @Entity
 public class Post {
 
@@ -10,11 +20,20 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @NotNull
     private String title;
 
+    @NotBlank
+    @NotNull
     private String content;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)       // 영속성 전이 문제 해결
-    @JoinColumn()
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private StatusType statusType;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "fk_Post_User"))
     private User writer;
 }
