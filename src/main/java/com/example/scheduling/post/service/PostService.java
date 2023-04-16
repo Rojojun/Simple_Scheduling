@@ -8,4 +8,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostService {
     private final PostRepository postRepository;
+
+    public void createPost() {
+
+    }
+
+    public void getPostList() {
+
+    }
+
+    public void getPost() {
+
+    }
+
+    public void deletePost() {
+
+    }
+
+    public void updatePost() {
+
+    }
 }

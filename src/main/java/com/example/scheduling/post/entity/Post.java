@@ -32,8 +32,8 @@ public class Post {
     @Enumerated(EnumType.STRING)
     private StatusType statusType;
 
-    @NotNull
+    /*@NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "fk_Post_User"))
-    private User writer;
+    @JoinColumn(name = "user_Id", foreignKey = @ForeignKey(name = "fk_Post_User"))
+    private User writer;*/
 }

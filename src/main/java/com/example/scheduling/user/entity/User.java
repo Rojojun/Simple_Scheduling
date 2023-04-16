@@ -11,6 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
 public class User {
@@ -32,8 +33,21 @@ public class User {
     private String nickname;
 
     @Enumerated(EnumType.STRING)
+    private UserType userType;
+
+    @Enumerated(EnumType.STRING)
     private StatusType statusType;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Post> posts;
+/*    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private List<Post> posts;*/
+
+    public static User signUp(String userId, String password, String nickname) {
+        return User.builder()
+                .userId(userId)
+                .password(password)
+                .nickname(nickname)
+                .userType(UserType.USER)
+                .statusType(StatusType.USED)
+                .build();
+    }
 }
