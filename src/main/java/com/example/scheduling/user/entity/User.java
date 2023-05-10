@@ -50,4 +50,8 @@ public class User {
                 .statusType(StatusType.USED)
                 .build();
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

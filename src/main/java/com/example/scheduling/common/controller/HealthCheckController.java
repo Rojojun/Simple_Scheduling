@@ -1,13 +1,17 @@
 package com.example.scheduling.common.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HealthCheckController {
 
-    @PostMapping("/check")
+    @GetMapping("/check")
     public String healthCheck() {
-        return "Health OK".describeConstable().orElseThrow(RuntimeException::new);
+        return HttpStatus.OK
+                .name().describeConstable()
+                .orElseThrow(RuntimeException::new);
     }
 }
