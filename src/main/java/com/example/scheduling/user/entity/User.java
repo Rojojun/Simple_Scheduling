@@ -26,7 +26,7 @@ public class User {
 
     @NotBlank
     @NotNull
-    private String userId;
+    private String name;
 
     @NotBlank
     @NotNull
@@ -35,19 +35,19 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
-    @Enumerated(EnumType.STRING)
-    private StatusType statusType;
+/*    @Enumerated(EnumType.STRING)
+    private StatusType statusType;*/
 
 /*    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private List<Post> posts;*/
 
-    public static User signUp(String userId, String password, String nickname) {
+    public static User signUp(String name, String password, String nickname) {
         return User.builder()
-                .userId(userId)
+                .name(name)
                 .password(password)
                 .nickname(nickname)
                 .userType(UserType.USER)
-                .statusType(StatusType.USED)
+//                .statusType(StatusType.USED)
                 .build();
     }
 

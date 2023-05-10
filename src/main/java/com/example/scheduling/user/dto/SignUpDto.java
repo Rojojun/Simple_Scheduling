@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @Data
 public class SignUpDto {
 
-    public String userId;
+    public String name;
     public String password;
     public String passwordCheck;
     public String nickname;
 
     public User toUserEntity() {
-        return User.signUp(userId, password, nickname);
+        return User.signUp(name, password, nickname);
     }
 }

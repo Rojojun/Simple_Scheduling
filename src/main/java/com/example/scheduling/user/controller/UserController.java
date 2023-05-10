@@ -17,7 +17,7 @@ public class UserController {
     @PostMapping("/user/signup")
     public void signup(@RequestBody SignUpDto signUpDto) {
         userService.signUp(signUpDto);
-        System.out.println(signUpDto.userId);
+        System.out.println(signUpDto.name);
         System.out.printf(signUpDto.password);
     }
 
