@@ -31,6 +31,7 @@ public class ApiCommonResponse<T> {
         return new ApiCommonResponse<>(healthType.SUCCESS.status, null, null);
     }
 
+    // When Data is INVALID
     public static ApiCommonResponse<?> createFail(BindingResult bindingResult) {
         Map<String, String> errors = new HashMap<>();
 
@@ -43,6 +44,11 @@ public class ApiCommonResponse<T> {
             }
         }
         return new ApiCommonResponse<>(healthType.FAIL.status, errors, null);
+    }
+
+    // When result is returned EXCEPTION
+    public static ApiCommonResponse<?> createError(String message) {
+        return new ApiCommonResponse<>(healthType.ERROR.status, null, message);
     }
 
     private ApiCommonResponse(String status, T data, String message) {
