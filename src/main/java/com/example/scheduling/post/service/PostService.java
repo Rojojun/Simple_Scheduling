@@ -10,7 +10,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     public void createPost() {
-
+        
     }
 
     public void getPostList() {
