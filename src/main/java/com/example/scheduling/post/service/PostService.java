@@ -1,10 +1,13 @@
 package com.example.scheduling.post.service;
 
 import com.example.scheduling.post.dto.PostRequestDto;
+import com.example.scheduling.post.dto.PostResponseDto;
 import com.example.scheduling.post.entity.Post;
 import com.example.scheduling.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -17,11 +20,12 @@ public class PostService {
     }
 
     public void getPostList() {
-
+        List<Post> postList = postRepository.findAll();
     }
 
-    public void getPost() {
-
+    public PostResponseDto getPost(Long postId) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new RuntimeException("알 수 없는 오류"));
+        return new PostResponseDto(post);
     }
 
     public void deletePost() {

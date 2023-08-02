@@ -4,10 +4,7 @@ import com.example.scheduling.common.ApiCommonResponse;
 import com.example.scheduling.post.dto.PostRequestDto;
 import com.example.scheduling.post.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -20,8 +17,8 @@ public class PostController {
     }
 
     @GetMapping("/post/get")
-    public void getPost() {
-
+    public ApiCommonResponse getPost(@PathVariable(name = "postId") Long postId) {
+        return ApiCommonResponse.success(postService.getPost(postId));
     }
 
     @PostMapping("/post/create")
