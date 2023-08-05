@@ -1,6 +1,6 @@
 package com.example.scheduling.post.service;
 
-import com.example.scheduling.post.dto.PostRequestDto;
+import com.example.scheduling.post.dto.PostRequestDtoOld;
 import com.example.scheduling.post.dto.PostResponseDto;
 import com.example.scheduling.post.entity.Post;
 import com.example.scheduling.post.repository.PostRepository;
@@ -14,8 +14,8 @@ import java.util.List;
 public class PostService {
     private final PostRepository postRepository;
 
-    public Post createPost(PostRequestDto postRequestDto) {
-        Post post = postRequestDto.toEntity();
+    public Post createPost(PostRequestDtoOld postRequestDtoOld) {
+        Post post = postRequestDtoOld.toEntity();
         return postRepository.save(post);
     }
 
