@@ -1,7 +1,7 @@
 package com.example.scheduling.post.service;
 
 import com.example.scheduling.post.dto.PostRequestDtoOld;
-import com.example.scheduling.post.dto.PostResponseDto;
+import com.example.scheduling.post.dto.PostResponseDtoOld;
 import com.example.scheduling.post.entity.Post;
 import com.example.scheduling.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,9 +23,9 @@ public class PostService {
         List<Post> postList = postRepository.findAll();
     }
 
-    public PostResponseDto getPost(Long postId) {
+    public PostResponseDtoOld getPost(Long postId) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new RuntimeException("알 수 없는 오류"));
-        return new PostResponseDto(post);
+        return new PostResponseDtoOld(post);
     }
 
     public void deletePost() {
