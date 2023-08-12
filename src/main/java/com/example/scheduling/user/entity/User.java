@@ -35,8 +35,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
-/*    @Enumerated(EnumType.STRING)
-    private StatusType statusType;*/
+    @Enumerated(EnumType.STRING)
+    private StatusType statusType;
 
 /*    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private List<Post> posts;*/
@@ -47,7 +47,7 @@ public class User {
                 .password(password)
                 .nickname(nickname)
                 .userType(UserType.USER)
-//                .statusType(StatusType.USED)
+                .statusType(StatusType.USED)
                 .build();
     }
 

@@ -1,6 +1,7 @@
 package com.example.scheduling.user.controller;
 
-import com.example.scheduling.user.dto.SignUpDto;
+import com.example.scheduling.common.ApiCommonResponse;
+import com.example.scheduling.user.dto.SignUpRequestDto;
 import com.example.scheduling.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,19 +16,17 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/signup")
-    public void signup(@RequestBody SignUpDto signUpDto) {
-        userService.signUp(signUpDto);
-        System.out.println(signUpDto.name);
-        System.out.printf(signUpDto.password);
+    public ApiCommonResponse signup(@RequestBody SignUpRequestDto signUpDto) {
+        return ApiCommonResponse.success(userService.signUp(signUpDto).getName() + "회원가입 완료");
     }
 
     @PostMapping("/user/login")
-    public void login() {
-
+    public ApiCommonResponse login() {
+        return ApiCommonResponse.noContent();
     }
 
     @GetMapping("/user/info")
-    public void getUserInfo() {
-
+    public ApiCommonResponse getUserInfo() {
+        return ApiCommonResponse.noContent();
     }
 }
