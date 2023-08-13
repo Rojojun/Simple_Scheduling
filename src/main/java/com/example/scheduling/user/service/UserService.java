@@ -2,6 +2,7 @@ package com.example.scheduling.user.service;
 
 import com.example.scheduling.common.CustomException;
 import com.example.scheduling.common.ErrorCode;
+import com.example.scheduling.user.dto.LoginRequestDto;
 import com.example.scheduling.user.dto.SignUpRequestDto;
 import com.example.scheduling.user.entity.User;
 import com.example.scheduling.user.repository.UserRepository;
@@ -32,7 +33,8 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void login() {
+    public void login(LoginRequestDto loginDto) {
+
 
     }
 
