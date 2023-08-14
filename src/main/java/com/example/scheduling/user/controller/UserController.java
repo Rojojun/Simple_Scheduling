@@ -1,6 +1,7 @@
 package com.example.scheduling.user.controller;
 
 import com.example.scheduling.common.ApiCommonResponse;
+import com.example.scheduling.user.dto.LoginRequestDto;
 import com.example.scheduling.user.dto.SignUpRequestDto;
 import com.example.scheduling.user.service.UserService;
 import com.example.scheduling.user.utils.UserDetailsServiceImpl;
@@ -24,8 +25,9 @@ public class UserController {
     }
 
     @PostMapping("/user/login")
-    public ApiCommonResponse login() {
-        return ApiCommonResponse.noContent();
+    public ApiCommonResponse login(@RequestBody LoginRequestDto loginRequestDto) {
+        String token = userDetailsService.authenticateAndSetContext(loginRequestDto);
+        return ApiCommonResponse.success();
     }
 
     @GetMapping("/user/info")
