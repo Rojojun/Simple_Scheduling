@@ -20,6 +20,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;
 
+    public void makeToken() {
+
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User findByUsername = userRepository.findByName(username).orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_EXISTS));
