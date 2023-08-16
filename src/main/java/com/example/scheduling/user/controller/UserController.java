@@ -26,8 +26,7 @@ public class UserController {
 
     @PostMapping("/user/login")
     public ApiCommonResponse login(@RequestBody LoginRequestDto loginRequestDto) {
-        String token = userDetailsService.authenticateAndSetContext(loginRequestDto);
-        return ApiCommonResponse.success();
+        return ApiCommonResponse.success(userDetailsService.authenticateAndSetContext(loginRequestDto));
     }
 
     @GetMapping("/user/info")
