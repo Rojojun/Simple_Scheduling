@@ -1,7 +1,6 @@
 package com.example.scheduling.post.entity;
 
 import com.example.scheduling.common.StatusType;
-import com.example.scheduling.user.entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,15 +28,14 @@ public class Post {
     @Enumerated(EnumType.STRING)
     private StatusType statusType;
 
-    /*@NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_Id", foreignKey = @ForeignKey(name = "fk_Post_User"))
-    private User writer;*/
+    @NotNull
+    private String writer;
 
     @Builder
-    public Post(String title, String content) {
+    public Post(String title, String content, String writer) {
         this.title = title;
         this.content = content;
+        this.writer = writer;
         this.statusType = StatusType.USED;
     }
 }
