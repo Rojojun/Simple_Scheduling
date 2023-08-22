@@ -36,7 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 
-### Docker Data ###
-src/data
 ### db-setting ###
 src/main/resources/application-db.properties
+/src/data/
