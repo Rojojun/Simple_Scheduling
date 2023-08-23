@@ -1,4 +1,6 @@
 package com.example.scheduling.post.dto;
 
-public record PostResponseDto(Long id, String title, String content, String status) {
+import com.example.scheduling.post.entity.Post;
+
+public record PostResponseDto(Post post) {
 }

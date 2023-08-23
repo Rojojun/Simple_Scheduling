@@ -1,7 +1,7 @@
 package com.example.scheduling.post.controller;
 
 import com.example.scheduling.common.ApiCommonResponse;
-import com.example.scheduling.post.dto.PostRequestDtoOld;
+import com.example.scheduling.post.dto.PostRequestDto;
 import com.example.scheduling.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping("/post/get/list")
-    public ApiCommonResponse getPostList(@RequestBody PostRequestDtoOld requestDto) {
+    public ApiCommonResponse getPostList(@RequestBody PostRequestDto requestDto) {
         return ApiCommonResponse.success(postService.createPost(requestDto));
     }
 
